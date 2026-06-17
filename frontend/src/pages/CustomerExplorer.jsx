@@ -126,7 +126,7 @@ export default function CustomerExplorer() {
 
             <div className="card" style={{ marginBottom: 20 }}>
               <h3>AI Recommendations</h3>
-              <RecommendationCard recommendations={selected.recommendations} />
+              <RecommendationCard recommendations={selected.recommendations} customerId={selected.customer_id} />
             </div>
 
             <div className="card">

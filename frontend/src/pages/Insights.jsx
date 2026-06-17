@@ -21,6 +21,51 @@ export default function Insights() {
         <p>Prioritized actions and opportunities powered by CXPulse intelligence</p>
       </div>
 
+      {data.executive_briefing && (
+        <div className="card" style={{
+          marginBottom: 24,
+          background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)',
+          border: '1px solid rgba(59, 130, 246, 0.3)',
+          boxShadow: '0 0 20px rgba(59, 130, 246, 0.15)',
+          position: 'relative',
+          overflow: 'hidden'
+        }}>
+          <div style={{
+            position: 'absolute',
+            top: 12,
+            right: 16,
+            background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+            color: 'white',
+            fontSize: '0.75rem',
+            padding: '2px 8px',
+            borderRadius: 12,
+            fontWeight: 600,
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em'
+          }}>
+            AI Briefing
+          </div>
+          <h3 style={{
+            color: 'var(--text)',
+            marginBottom: 8,
+            fontSize: '1.1rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8
+          }}>
+            ✨ Gemini AI Executive Briefing
+          </h3>
+          <p style={{
+            color: 'var(--text)',
+            fontSize: '0.95rem',
+            lineHeight: 1.6,
+            margin: 0
+          }}>
+            {data.executive_briefing}
+          </p>
+        </div>
+      )}
+
       <div className="insights-grid">
         <div className="card">
           <h3>High Risk Customers</h3>

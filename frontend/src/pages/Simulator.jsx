@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react'
+import {
+  BarChart, Bar, Cell, XAxis, YAxis, Tooltip, ResponsiveContainer
+} from 'recharts'
 import { api } from '../services/api'
 
 function Toggle({ on, onChange }) {
@@ -146,6 +149,29 @@ export default function Simulator() {
                   </div>
                   <div className="lbl">After Intervention</div>
                 </div>
+              </div>
+
+              <div style={{ height: 160, marginTop: 24, marginBottom: 24 }}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart
+                    data={[
+                      { name: 'Current Risk', value: result.current_churn_risk, color: '#ef4444' },
+                      { name: 'After Intervention', value: result.predicted_churn_risk, color: '#22c55e' }
+                    ]}
+                    margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
+                  >
+                    <XAxis dataKey="name" stroke="#8b9ab8" fontSize={11} tickLine={false} />
+                    <YAxis stroke="#8b9ab8" fontSize={11} domain={[0, 100]} unit="%" tickLine={false} />
+                    <Tooltip
+                      cursor={{ fill: 'transparent' }}
+                      contentStyle={{ background: '#1a2235', border: '1px solid #243049', borderRadius: 8 }}
+                    />
+                    <Bar dataKey="value" radius={[6, 6, 0, 0]} barSize={50}>
+                      <Cell fill="#ef4444" />
+                      <Cell fill="#22c55e" />
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
               </div>
 
               <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>

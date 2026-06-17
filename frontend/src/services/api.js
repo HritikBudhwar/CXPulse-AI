@@ -26,4 +26,13 @@ export const api = {
       if (!r.ok) throw new Error(`API error: ${r.status}`)
       return r.json()
     }),
+  generateEmail: (payload) =>
+    fetch(`${API_BASE}/generate_email`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    }).then((r) => {
+      if (!r.ok) throw new Error(`API error: ${r.status}`)
+      return r.json()
+    }),
 }
